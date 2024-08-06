@@ -27,7 +27,7 @@ void SLL_DestroyList(Node** Head) {
 		Next = Current->NextNode;
 		SLL_DestroyNode(Current);
 		Current = Next;
-		printf("%d 번째 노드를 삭제했습니다!\n", count);
+		printf("Deleted the %d-th node!\n", count);
 		count++;
 	}
 }
