@@ -52,11 +52,27 @@ void SLL_DestroyList(Node* Head) {
 Node* SLL_GetNodeAt(Node* Head, int Location) {
 	Node* Current = Head;
 
-	while ( Current != NULL && (--Location) >= 0)
+	while ( Current != NULL && Location > 0)
 	{
 		Current = Current->NextNode;
+		Location--;
 	}
 	return Current;
+}
+
+void SLL_RemoveNode(Node** Head, Node* Remove) {
+	if (*Head == Remove) {
+		*Head = Remove->NextNode;
+	}
+	else {
+		Node* Current = *Head;
+		while (Current != NULL && Current->NextNode != Remove) {
+			Current = Current->NextNode;
+		}
+		if (Current != NULL) {
+			Current->NextNode = Remove->NextNode;
+		}
+	}
 }
 
 int main(void) {
@@ -72,6 +88,9 @@ int main(void) {
 
 	MyNode = SLL_GetNodeAt(List, 1);
 	printf("%d\n", MyNode->data);
+
+	SLL_RemoveNode(&List, MyNode);
+	SLL_DestroyNode(MyNode);
 
 
 	return 0;
