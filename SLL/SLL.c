@@ -75,6 +75,22 @@ void SLL_RemoveNode(Node** Head, Node* Remove) {
 	}
 }
 
+void SLL_InsertAfter(Node* Current, Node* NewNode) {
+	NewNode->NextNode = Current->NextNode;
+	Current->NextNode = NewNode;
+}
+
+int SLL_GetNodeCount(Node* Head) {
+	int Count = 0;
+	Node* Current = Head;
+
+	while (Current != NULL) {
+		Current = Current->NextNode;
+		Count++;
+	}
+	return Count;
+}
+
 int main(void) {
 	Node* MyNode;
 
