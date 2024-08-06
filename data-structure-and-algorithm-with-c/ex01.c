@@ -1,20 +1,16 @@
 #include <stdio.h>
 
-struct Point {
-	int x;
-	int y;
+struct Node {
+    int data;
+    double value;
 };
 
-struct forSize {
-	int x;
-	int y;
-	char arr[10];
-};
+int main(void) {
+    struct Node node;
+    struct Node* node_ptr;
 
-void main(void) {
-	struct Point p;
-	struct forSize f;
-	printf("size: %d\n", (int)sizeof(p));
-	printf("size: %d\n", (int)sizeof(f));
-	printf("size: %d\n", (int)sizeof(f.arr));
+    printf("sizeof(Node): %zu\n", sizeof(node));
+    printf("sizeof(Node*): %zu\n", sizeof(node_ptr));
+
+    return 0;
 }
