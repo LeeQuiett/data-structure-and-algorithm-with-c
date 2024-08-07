@@ -108,3 +108,29 @@ void DLL_RemoveNode(Node** Head, Node* Remove)
 	Remove->NextNode = NULL;
 	DLL_DestroyNode(Remove);
 }
+
+// 노드 탐색
+Node* DLL_GetNodeCount(Node* Head, int Location)
+{
+	Node* Current = Head;
+
+	while (Current != NULL && Location > 0) 
+	{
+		Current = Current->NextNode;
+		Location--;
+	}
+	return Current;
+}
+
+// 노드 개수 세기
+int DLL_GetNodeCount(Node* Head)
+{
+	int Count = 0;
+	Node* Current = Head;
+	while (Current != NULL)
+	{
+		Current = Current->NextNode;
+		Count++;
+	}
+	return Count;
+}
