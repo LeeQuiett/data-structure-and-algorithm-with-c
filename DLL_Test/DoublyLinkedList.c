@@ -27,7 +27,7 @@ int DLL_DestroyList(Node** Head)
 
 	if (*Head == NULL) {
 		puts("Error: Head is NULL!");
-		return;
+		return 0;
 	}
 
 	while (Current != NULL)
