@@ -25,7 +25,8 @@ int DLL_DestroyList(Node** Head)
 	Node* Current = *Head;
 	Node* Next;
 
-	if (*Head == NULL) {
+	if (*Head == NULL)
+	{
 		puts("Error: Head is NULL!");
 		return 0;
 	}
@@ -39,4 +40,34 @@ int DLL_DestroyList(Node** Head)
 	}
 	*Head = NULL;
 	return count;
+}
+
+// 노드 추가
+void DLL_AppendNode(Node** Head, Node* NewNode)
+{
+	if (*Head == NULL)
+	{
+		*Head = NewNode;
+	}
+	else
+	{
+		Node* Tail = (*Head);
+		while (Tail->NextNode != NULL) {
+			Tail = Tail->NextNode;
+		}
+		Tail->NextNode = NewNode;
+		NewNode->PrevNode = Tail;
+	}
+}
+
+// 노드 삽입
+void DLL_InsertAfter(Node* Current, Node* NewNode)
+{
+	NewNode->NextNode = Current->NextNode;
+	NewNode->PrevNode = Current;
+
+	if (Current->NextNode != NULL) {
+		Current->NextNode->PrevNode = NewNode;
+		Current->NextNode = NewNode;
+	}
 }
