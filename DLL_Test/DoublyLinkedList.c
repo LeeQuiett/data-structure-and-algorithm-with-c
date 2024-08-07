@@ -134,3 +134,26 @@ int DLL_GetNodeCount(Node* Head)
 	}
 	return Count;
 }
+
+// 노드 출력
+void PrintNode(Node* Current) 
+{
+	if (Current->PrevNode == NULL)
+	{
+		printf("Prev: NULL");
+	}
+	else {
+		printf("Prev: %d ", Current->PrevNode->data);
+	}
+
+	printf("Current: %d ", Current->data);
+
+	if (Current->NextNode == NULL)
+	{
+		printf("Next: NULL");
+	}
+	else
+	{
+		printf("Next: %d ", Current->NextNode->data);
+	}
+}
