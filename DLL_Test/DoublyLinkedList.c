@@ -52,7 +52,8 @@ void DLL_AppendNode(Node** Head, Node* NewNode)
 	else
 	{
 		Node* Tail = (*Head);
-		while (Tail->NextNode != NULL) {
+		while (Tail->NextNode != NULL)
+		{
 			Tail = Tail->NextNode;
 		}
 		Tail->NextNode = NewNode;
@@ -66,8 +67,44 @@ void DLL_InsertAfter(Node* Current, Node* NewNode)
 	NewNode->NextNode = Current->NextNode;
 	NewNode->PrevNode = Current;
 
-	if (Current->NextNode != NULL) {
+	if (Current->NextNode != NULL) 
+	{
 		Current->NextNode->PrevNode = NewNode;
-		Current->NextNode = NewNode;
+		Current->NextNode = NewNode;	
 	}
+}
+
+// 노드 제거
+void DLL_RemoveNode(Node** Head, Node* Remove)
+{
+	if (Remove == NULL)
+	{
+		puts("Can't Start Fucntion! cuz Remove is NULL!");
+		return;
+	}
+
+	if (*Head == Remove) {
+		*Head = Remove->NextNode;
+		if (*Head != NULL)
+		{
+			(*Head)->PrevNode = NULL;
+		}
+	}
+	else
+	{
+		Node* Temp = Remove;
+
+		if (Remove->PrevNode != NULL)
+		{
+			Remove->PrevNode->NextNode = Temp->NextNode;
+		}
+		if (Remove->NextNode != NULL) 
+		{
+			Remove->NextNode->PrevNode = Temp->PrevNode;
+		}
+	}
+
+	Remove->PrevNode = NULL;
+	Remove->NextNode = NULL;
+	DLL_DestroyNode(Remove);
 }
