@@ -1,7 +1,7 @@
 #include "DoublyLinkedList.h"
 
 // 노드 생성
-Node* DLL_CreatNode(ElementType NewData)
+Node* DLL_CreateNode(ElementType NewData)
 {
 	Node* NewNode = (Node*)malloc(sizeof(Node));
 
@@ -110,7 +110,7 @@ void DLL_RemoveNode(Node** Head, Node* Remove)
 }
 
 // 노드 탐색
-Node* DLL_GetNodeCount(Node* Head, int Location)
+Node* DLL_GetNodeAt(Node* Head, int Location)
 {
 	Node* Current = Head;
 
@@ -155,5 +155,5 @@ void PrintNode(Node* Current)
 	else
 	{
 		printf("Next: %d ", Current->NextNode->data);
-	}
+	}	
 }
