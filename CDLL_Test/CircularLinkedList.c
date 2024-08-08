@@ -21,3 +21,25 @@ void CDLL_AppendNode(Node** Head, Node* NewNode)
 		NewNode->PrevNode = Tail;
 	}
 }
+
+void CDLL_RemoveNode(Node** Head, Node* Remove) {
+	if (*Head == Remove) {
+		(*Head)->PrevNode->NextNode = Remove->NextNode;
+		(*Head)->NextNode->PrevNode = Remove->PrevNode;
+
+		(*Head) = Remove->NextNode;
+		
+		Remove->NextNode = NULL;
+		Remove->PrevNode = NULL;
+		free(Remove);
+	}
+	else
+	{
+		Remove->PrevNode->NextNode = Remove->NextNode;
+		Remove->NextNode->PrevNode = Remove->PrevNode;
+
+		Remove->NextNode = NULL;
+		Remove->PrevNode = NULL;
+		free(Remove);
+	}
+}
