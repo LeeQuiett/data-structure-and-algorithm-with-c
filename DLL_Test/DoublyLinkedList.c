@@ -157,3 +157,21 @@ void PrintNode(Node* Current)
 		printf("Next: %d ", Current->NextNode->data);
 	}	
 }
+
+// Q: 더블 링크드 리스트를 역순으로 출력하는 함수
+void PrintReverse(Node* Head) {
+	Node* Current = Head;
+	int i = DLL_GetNodeCount(Head) - 1;
+
+	while (Current->NextNode != NULL) {
+		Current = Current->NextNode;
+	}
+
+	puts("\nPrint Reverse..!");
+	while (Current->PrevNode != NULL) {
+		printf("List[%d]: %d\n", i, Current->data);
+		Current = Current->PrevNode;
+		i--;
+	}
+	printf("List[%d]: %d\n", i, Current->data);
+}
