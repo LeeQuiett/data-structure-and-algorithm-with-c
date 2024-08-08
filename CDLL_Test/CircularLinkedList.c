@@ -3,7 +3,6 @@
 void CDLL_AppendNode(Node** Head, Node* NewNode)
 {
 	// 헤드 노드가 NULL이라면 새로운 노드가 Head가 된다.
-
 	if (*Head == NULL) {
 		(*Head) = NewNode;
 		(*Head)->NextNode = *Head;
@@ -23,6 +22,11 @@ void CDLL_AppendNode(Node** Head, Node* NewNode)
 }
 
 void CDLL_RemoveNode(Node** Head, Node* Remove) {
+	if (Remove == NULL) {
+		puts("Remove Node is NULL!");
+		return;
+	}
+
 	if (*Head == Remove) {
 		(*Head)->PrevNode->NextNode = Remove->NextNode;
 		(*Head)->NextNode->PrevNode = Remove->PrevNode;
@@ -30,8 +34,7 @@ void CDLL_RemoveNode(Node** Head, Node* Remove) {
 		(*Head) = Remove->NextNode;
 		
 		Remove->NextNode = NULL;
-		Remove->PrevNode = NULL;
-		free(Remove);
+		Remove->PrevNode = NULL;		
 	}
 	else
 	{
@@ -40,6 +43,6 @@ void CDLL_RemoveNode(Node** Head, Node* Remove) {
 
 		Remove->NextNode = NULL;
 		Remove->PrevNode = NULL;
-		free(Remove);
 	}
+	free(Remove);
 }
