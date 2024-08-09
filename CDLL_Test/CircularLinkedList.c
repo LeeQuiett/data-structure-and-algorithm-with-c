@@ -108,13 +108,12 @@ void CDLL_InsertAfter(Node* Current, Node* NewNode)
 
 Node* CDLL_GetNodeAt(Node* Head, int Location)
 {
-	int count = 0;
 	Node* Current = Head;
 
-	while (Current->NextNode == Head && count >= 0)
+	while (Current->NextNode != Head && Location >= 0)
 	{
 		Current = Current->NextNode;
-		count--;
+		Location--;
 	}
 	return Current;
 }
