@@ -3,7 +3,8 @@
 void CDLL_AppendNode(Node** Head, Node* NewNode)
 {
 	// 헤드 노드가 NULL이라면 새로운 노드가 Head가 된다.
-	if (*Head == NULL) {
+	if (*Head == NULL) 
+	{
 		(*Head) = NewNode;
 		(*Head)->NextNode = *Head;
 		(*Head)->PrevNode = *Head;
@@ -23,12 +24,14 @@ void CDLL_AppendNode(Node** Head, Node* NewNode)
 
 void CDLL_RemoveNode(Node** Head, Node* Remove) 
 {
-	if (Remove == NULL) {
+	if (Remove == NULL) 
+	{
 		puts("Remove Node is NULL!");
 		return;
 	}
 
-	if (*Head == Remove) {
+	if (*Head == Remove)
+	{
 		(*Head)->PrevNode->NextNode = Remove->NextNode;
 		(*Head)->NextNode->PrevNode = Remove->PrevNode;
 
@@ -54,17 +57,20 @@ void CDLL_DestroyList(Node* Head)
 	Node* NextNode;
 	int index = 0;
 
-	if (Head == NULL) {
+	if (Head == NULL)
+	{
 		puts("List is already empty.\n");
 		return;
 	}
 
-	if (Current->NextNode == Head) {
+	if (Current->NextNode == Head) 
+	{
 		free(Head);
 		puts("List[0] Destroyed");
 		return;
 	}
-	else {
+	else 
+	{
 		while (Current->NextNode != Head)
 		{
 			NextNode = Current->NextNode;
@@ -98,4 +104,17 @@ void CDLL_InsertAfter(Node* Current, Node* NewNode)
 		Current->NextNode->PrevNode = NewNode;
 		Current->NextNode = NewNode;
 	}
+}
+
+Node* CDLL_GetNodeAt(Node* Head, int Location)
+{
+	int count = 0;
+	Node* Current = Head;
+
+	while (Current->NextNode == Head && count >= 0)
+	{
+		Current = Current->NextNode;
+		count--;
+	}
+	return Current;
 }
