@@ -89,5 +89,13 @@ Node* CDLL_CreatNode(int NewData)
 
 void CDLL_InsertAfter(Node* Current, Node* NewNode)
 {
+	NewNode->NextNode = Current->NextNode;
+	NewNode->PrevNode = Current;
 
+
+	if(Current->NextNode != NULL)
+	{
+		Current->NextNode->PrevNode = NewNode;
+		Current->NextNode = NewNode;
+	}
 }
