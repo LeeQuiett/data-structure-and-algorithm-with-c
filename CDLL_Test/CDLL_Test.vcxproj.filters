@@ -18,6 +18,9 @@
     <ClCompile Include="CircularLinkedList.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="CircularLinkedListTest.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CircularLinkedList.h">
