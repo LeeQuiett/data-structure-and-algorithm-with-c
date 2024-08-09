@@ -109,11 +109,23 @@ void CDLL_InsertAfter(Node* Current, Node* NewNode)
 Node* CDLL_GetNodeAt(Node* Head, int Location)
 {
 	Node* Current = Head;
+	int count = 0;
 
-	while (Current->NextNode != Head && Location >= 0)
+	if (Head == NULL || Location < 0)
 	{
-		Current = Current->NextNode;
-		Location--;
+		//puts("Invalid input!"); 호출자가 처리하자
+		return NULL;
 	}
-	return Current;
+
+	do 
+	{
+		if (count == Location) {
+			return Current;
+		}
+		Current = Current->NextNode;
+		count++;
+	} while (Current != Head);
+	
+	//puts("Position is out of bounds"); 호출자가 처리하자
+	return NULL;
 }
