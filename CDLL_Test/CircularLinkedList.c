@@ -75,3 +75,19 @@ void CDLL_DestroyList(Node* Head)
 		free(Current);
 	}
 }
+
+Node* CDLL_CreatNode(int NewData) 
+{
+	Node* NewNode = (Node*)malloc(sizeof(Node));
+
+	NewNode->Data = NewData;
+	NewNode->PrevNode = NULL;
+	NewNode->NextNode = NULL;
+
+	return NewNode;
+}
+
+void CDLL_InsertAfter(Node* Current, Node* NewNode)
+{
+
+}
