@@ -21,7 +21,8 @@ void CDLL_AppendNode(Node** Head, Node* NewNode)
 	}
 }
 
-void CDLL_RemoveNode(Node** Head, Node* Remove) {
+void CDLL_RemoveNode(Node** Head, Node* Remove) 
+{
 	if (Remove == NULL) {
 		puts("Remove Node is NULL!");
 		return;
@@ -45,4 +46,32 @@ void CDLL_RemoveNode(Node** Head, Node* Remove) {
 		Remove->PrevNode = NULL;
 	}
 	free(Remove);
+}
+
+void CDLL_DestroyList(Node* Head)
+{
+	Node* Current = Head;
+	Node* NextNode;
+	int index = 0;
+
+	if (Head == NULL) {
+		puts("List is already empty.\n");
+		return;
+	}
+
+	if (Current->NextNode == Head) {
+		free(Head);
+		puts("List[0] Destroyed");
+		return;
+	}
+	else {
+		while (Current->NextNode != Head)
+		{
+			NextNode = Current->NextNode;
+			free(Current);
+			Current = NextNode;
+			printf("List[%d] Destroyed\n", index++);
+		}
+		free(Current);
+	}
 }
