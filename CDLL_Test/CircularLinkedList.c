@@ -129,3 +129,24 @@ Node* CDLL_GetNodeAt(Node* Head, int Location)
 	//puts("Position is out of bounds"); 호출자가 처리하자
 	return NULL;
 }
+
+int CDLL_GetNodeCount(Node* Head)
+{
+	Node* Current = Head;
+	int count = 1;
+
+	if (Head == NULL) 
+	{
+		return 0;
+	}
+
+	do
+	{
+		if (Current->NextNode == Head)
+		{
+			return count;
+		}
+		Current = Current->NextNode;
+		count++;
+	} while (Current != Head);
+}
