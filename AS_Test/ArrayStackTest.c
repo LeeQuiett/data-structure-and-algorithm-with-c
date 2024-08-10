@@ -13,6 +13,16 @@ int main(void)
 
 	printf("Capacity :%d, Size: %d, Top: %d\n\n", Stack->Capacity, AS_GetSize(Stack), AS_Top(Stack));
 
+	if (AS_IsFull(Stack))
+	{
+		printf("Stack is Full.\n");
+	}
+	else
+	{
+		printf("Stact is not Full.\n");
+		printf("Capa: %d, Top: %d\n\n", Stack->Capacity, Stack->Top);
+	}
+
 	for (int i = 0; i < 4; i++)
 	{
 		if (AS_IsEmpty(Stack))
