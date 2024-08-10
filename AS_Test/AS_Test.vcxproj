@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ArrarStack.h" />
+    <ClInclude Include="ArrayStack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArrayStack.c" />
+    <ClCompile Include="ArrayStackTest.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

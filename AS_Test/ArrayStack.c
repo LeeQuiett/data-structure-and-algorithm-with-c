@@ -32,7 +32,7 @@ int AS_Pop(ArrayStack* Stack)
 	return Stack->Nodes[Position].Data;
 }
 
-int AS_TOP(ArrayStack* Stack)
+int AS_Top(ArrayStack* Stack)
 {
 	return Stack->Nodes[Stack->Top].Data;
 }
