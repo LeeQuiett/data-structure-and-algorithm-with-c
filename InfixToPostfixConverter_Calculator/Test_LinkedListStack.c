@@ -19,7 +19,7 @@ int main(void)
 
 	for (int i = 0; i < count; i++)
 	{
-		if (LLS_IsEmpty(Stack)) 
+		if (LLS_IsEmpty(Stack))
 		{
 			break;
 		}
@@ -29,11 +29,11 @@ int main(void)
 
 		LLS_DestroyNode(Popped);
 
-		if (!LLS_IsEmpty(Stack)) 
+		if (!LLS_IsEmpty(Stack))
 		{
 			printf("Current Top: %s\n", LLS_Top(Stack)->data);
 		}
-		else 
+		else
 		{
 			puts("Stack Is Empty.");
 		}
