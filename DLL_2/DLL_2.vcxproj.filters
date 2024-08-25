@@ -14,20 +14,4 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="LinkedListStack.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Calculator.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="LinkedListStack.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_LinkedListStack.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-  </ItemGroup>
 </Project>
