@@ -1,12 +1,12 @@
 #include "CircularQueue.h"
 
-void CQ_CreatQueue(CircularQueue** Queue, int Capacity)
+void CQ_CreateQueue(CircularQueue** Queue, int Capacity)
 {
 	// 큐를 힙영역에 생성
 	(*Queue) = (CircularQueue*)malloc(sizeof(CircularQueue));
 
-	// 입력된 Capacity+1 만큼의 노드를 자유 저장소에 생성
-	(*Queue)->Nodes = (Node*)malloc(sizeof(Node) * Capacity + 1);
+	// 입력된 Capacity+1 만큼의 노드를 자유 저장소에 생성;
+	(*Queue)->Nodes = (Node*)malloc(sizeof(Node) * (Capacity + 1));
 
 	(*Queue)->Capacity = Capacity;
 	(*Queue)->Front = 0;
@@ -61,7 +61,7 @@ int CQ_IsEmpty(CircularQueue* Queue)
 	return (Queue->Front == Queue->Rear);
 }
 
-int CQ_Is_Full(CircularQueue* Queue) // Full이면 1 리턴
+int CQ_IsFull(CircularQueue* Queue) // Full이면 1 리턴
 {
 	if (Queue->Front < Queue->Rear)
 		return (Queue->Rear - Queue->Front) == Queue->Capacity;

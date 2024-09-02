@@ -18,7 +18,7 @@ typedef struct tagCircularQueue
 	Node* Nodes;
 } CircularQueue;
 
-void CQ_creatQueue(CircularQueue** Queue, int Capacity);
+void CQ_CreateQueue(CircularQueue** Queue, int Capacity);
 void CQ_DestroyQueue(CircularQueue* Queue);
 void CQ_Enqueue(CircularQueue* Queue, int Data);
 int CQ_Dequeue(CircularQueue* Queue);
