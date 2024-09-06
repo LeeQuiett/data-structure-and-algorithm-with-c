@@ -15,7 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ExpressionTree.c">
+    <ClInclude Include="DisjointSet.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DisjointSet.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_DisjointSet.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
