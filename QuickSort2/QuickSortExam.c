@@ -31,7 +31,7 @@ int main(void)
 {
 	int length = sizeof dataSet / sizeof dataSet[0];
 
-	qsort((void*)dataSet, length, sizeof(Point), compare);
+	qsort((void*)dataSet, length, sizeof, compare);
 
 	for (int i = 0; i < length; i++)
 	{

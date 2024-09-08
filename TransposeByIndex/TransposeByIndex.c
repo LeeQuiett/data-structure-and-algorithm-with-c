@@ -1,61 +1,67 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-typedef struct tagNode
-{
+// 노드 구조체에 탐색 횟수를 추가
+typedef struct tagNode {
 	int data;
+	int searchCount;  // 탐색 횟수
 	struct tagNode* nextNode;
 } Node;
 
-// 계수법을 사용한 transpose 함수
-Node* transposeByIndex(Node** head, int target)
-{
-	Node* current = (*head);
-	Node* match = NULL;
-	int currentIndex = 0;
-	int prevIndex = -1;
+// 새로운 노드를 생성하는 함수
+Node* createNode(int newData) {
+	Node* newNode = (Node*)malloc(sizeof(Node));
+	newNode->data = newData;
+	newNode->searchCount = 0;  // 탐색 횟수 초기화
+	newNode->nextNode = NULL;
+	return newNode;
+}
 
-	// 타겟 노드를 찾을 때까지 리스트를 순회
-	while (current != NULL)
-	{
-		if (current->data == target)
-		{
+// 리스트를 탐색하고, 노드의 탐색 횟수를 증가시키며 리스트를 정렬하는 함수
+Node* searchAndRearrange(Node** head, int target) {
+	Node* current = (*head);
+	Node* prev = NULL;
+	Node* match = NULL;
+
+	// 노드를 탐색
+	while (current != NULL) {
+		if (current->data == target) {
 			match = current;
+			current->searchCount++;  // 탐색 횟수 증가
 			break;
 		}
+		prev = current;
 		current = current->nextNode;
-		currentIndex++;
 	}
 
-	// 타겟 노드를 찾았고, 그것이 첫 번째 노드가 아닌 경우
-	if (match != NULL && currentIndex > 0); 
-	{
-		// 인덱스를 기반으로 이전 노드를 찾음
-		Node* prev = (*head);
-		for (int i = 0; i < currentIndex - 1; i++)
-		{
-			prev = prev->nextNode;
+	// 노드를 찾았고, 그 노드를 앞으로 옮길 필요가 있는 경우
+	if (match != NULL && prev != NULL) {
+		// 탐색 횟수가 더 높은 노드가 있으면 앞쪽으로 이동
+		Node* tmp = (*head);
+		Node* tmpPrev = NULL;
+
+		// 리스트를 순회하여 탐색 횟수가 더 낮은 위치로 이동
+		while (tmp != match && tmp->searchCount >= match->searchCount) {
+			tmpPrev = tmp;
+			tmp = tmp->nextNode;
 		}
 
-		// 타겟 노드를 이전 노드와 교환
-		if (currentIndex == 1)
-		{
-			// 타겟이 두 번째 노드일 경우, head를 타겟으로 변경
-			(*head) = match;
-		}
-		else
-		{
-			// 이전 노드의 이전 노드를 찾음
-			Node* pprev = (*head);
-			for (int i = 0; i < currentIndex - 2; i++)
-			{
-				pprev = pprev->nextNode;
+		// 노드를 해당 위치로 옮김
+		if (tmp != match) {
+			// 현재 노드를 리스트에서 제거
+			prev->nextNode = match->nextNode;
+
+			// match 노드를 새로운 위치로 삽입
+			if (tmpPrev != NULL) {
+				tmpPrev->nextNode = match;
 			}
-			pprev->nextNode = match;
+			else {
+				// match가 가장 앞쪽으로 이동해야 할 경우
+				(*head) = match;
+			}
+			match->nextNode = tmp;
 		}
-		
-		// 이전 노드와 타겟 노드의 연결을 변경
-		prev->nextNode = match->nextNode;
-		match->nextNode = prev;
 	}
+
 	return match;
 }

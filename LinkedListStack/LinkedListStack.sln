@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Transpose", "..\Transpose\T
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TransposeByIndex", "..\TransposeByIndex\TransposeByIndex.vcxproj", "{AD6C59BD-BD85-4ADA-949A-7959A6D4561F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinarySearch", "..\BinarySearch\BinarySearch.vcxproj", "{50129B81-8231-4E0D-BA6B-6B1BFDA0BA15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -171,6 +173,14 @@ Global
 		{AD6C59BD-BD85-4ADA-949A-7959A6D4561F}.Release|x64.Build.0 = Release|x64
 		{AD6C59BD-BD85-4ADA-949A-7959A6D4561F}.Release|x86.ActiveCfg = Release|Win32
 		{AD6C59BD-BD85-4ADA-949A-7959A6D4561F}.Release|x86.Build.0 = Release|Win32
+		{50129B81-8231-4E0D-BA6B-6B1BFDA0BA15}.Debug|x64.ActiveCfg = Debug|x64
+		{50129B81-8231-4E0D-BA6B-6B1BFDA0BA15}.Debug|x64.Build.0 = Debug|x64
+		{50129B81-8231-4E0D-BA6B-6B1BFDA0BA15}.Debug|x86.ActiveCfg = Debug|Win32
+		{50129B81-8231-4E0D-BA6B-6B1BFDA0BA15}.Debug|x86.Build.0 = Debug|Win32
+		{50129B81-8231-4E0D-BA6B-6B1BFDA0BA15}.Release|x64.ActiveCfg = Release|x64
+		{50129B81-8231-4E0D-BA6B-6B1BFDA0BA15}.Release|x64.Build.0 = Release|x64
+		{50129B81-8231-4E0D-BA6B-6B1BFDA0BA15}.Release|x86.ActiveCfg = Release|Win32
+		{50129B81-8231-4E0D-BA6B-6B1BFDA0BA15}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
