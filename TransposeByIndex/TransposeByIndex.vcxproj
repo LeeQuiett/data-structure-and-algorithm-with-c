@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d347b4cf-646f-4b01-8533-e99e18abfefd}</ProjectGuid>
-    <RootNamespace>MoveToFromtMethod</RootNamespace>
+    <ProjectGuid>{ad6c59bd-bd85-4ada-949a-7959a6d4561f}</ProjectGuid>
+    <RootNamespace>TransposeByIndex</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MoveToFrontMethod.c" />
+    <ClCompile Include="TransposeByIndex.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
