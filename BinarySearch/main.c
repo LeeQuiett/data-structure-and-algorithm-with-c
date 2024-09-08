@@ -17,19 +17,34 @@ int comparePoints(const void* a, const void* b)
 // 결과를 파일에 저장하는 함수
 void saveToFile(const char* filename, Point* dataSet, int size)
 {
-	FILE* file = fopen(filename, "w");
-	if (file == NULL)
-	{
-		perror("파일 열기 실패");
-		exit(1);
-	}
+    FILE* file = fopen(filename, "w");
+    if (file == NULL)
+    {
+        perror("파일 열기 실패");
+        exit(1);
+    }
 
-	// 파일에 데이터 쓰기
-	for (int i = 0; i < size; i++)
-	{
-		 fprintf(file, "{%d, %.2f},\n", dataSet[i].id, dataSet[i].point);
-	}
-	fclose(file);
+    // 파일에 데이터와 구조체 정의를 쓰기
+    fprintf(file, "#include <stdio.h>\n");
+    fprintf(file, "#include <stdlib.h>\n");
+    fprintf(file, "\n");
+    fprintf(file, "typedef struct tagPoint\n");
+    fprintf(file, "{\n");
+    fprintf(file, "    int id;\n");
+    fprintf(file, "    double point;\n");
+    fprintf(file, "} Point;\n");
+    fprintf(file, "\n");
+    fprintf(file, "Point DataSet[] =\n");
+    fprintf(file, "{\n");
+
+    for (int i = 0; i < size; i++)
+    {
+        fprintf(file, "    {%d, %.2f}%s\n", dataSet[i].id, dataSet[i].point, (i < size - 1) ? "," : "");
+    }
+
+    fprintf(file, "};\n");
+
+    fclose(file);
 }
 
 int main() {
